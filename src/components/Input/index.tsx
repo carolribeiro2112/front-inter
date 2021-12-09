@@ -1,5 +1,10 @@
-export const Input = () => {
+import { InputHTMLAttributes } from 'react';
+import { InputContainer } from "../../pages/SignIn/styles"
+
+export const Input = (props: InputHTMLAttributes<HTMLInputElement>) => {
   return(
-    <h1>Input</h1>
+    <InputContainer>
+      <input {...props} />
+    </InputContainer>
   )
 }
