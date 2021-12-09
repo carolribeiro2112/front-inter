@@ -13,13 +13,16 @@ export const ButtonContainer = styled.button`
   
   display:flex;
   justify-content: center;
+  align-items: center;
   z-index: 5000;
     
   &:hover {
     filter: opacity(0.8);
+    cursor: pointer;
   }
 
   &:disabled {
     filter: opacity(0.4);
+    cursor: not-allowed;
   }
 `;

@@ -6,7 +6,8 @@ export const CardContainer = styled.div<{
   noShadow: boolean;
 }>`
   width: ${(props) => props.width};
-  height: ${(props) => props.width};
+  height: ${(props) => props.height};
+  
   background: ${({theme}) => theme.colors.background};
 
   ${(props) => !props.noShadow && css`

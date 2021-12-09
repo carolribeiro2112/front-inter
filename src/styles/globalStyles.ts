@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle `
   }
 
   body {
+    font-family: Roboto, sans-serif; 
     background-color: ${({theme}) => theme.colors.background};
   }
 
@@ -18,6 +19,7 @@ const GlobalStyle = createGlobalStyle `
     outline: none;
   }
   a {
+    font-family: Roboto, sans-serif; 
     text-decoration: none;
     color: ${({theme})=> theme.colors.primary};
     &:hover {
@@ -44,4 +46,4 @@ const GlobalStyle = createGlobalStyle `
   }
 `
 
-export default GlobalStyle
+export default GlobalStyle;
