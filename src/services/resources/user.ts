@@ -1,15 +1,25 @@
 import { api } from "../api";
 
-interface SignInData {
+export interface SignInData {
   email: string;
   password: string;
 }
 
-interface SignUpData {
+export interface SignUpData {
   email: string;
   password: string;
   firstName: string;
   lastName: string;
+}
+
+export interface UserDTO {
+  id: string;
+  firstName: string;
+  lastName: string;
+  accountNumber: number;
+  accountDigit: number;
+  wallet: number;
+  email: string;
 }
 
 export const signIn = async(data: SignInData) => {
@@ -21,5 +31,5 @@ export const signUp = async(data: SignUpData) => {
 }
 
 export const me = async () => {
-  return api.get('/user/signup')
+  return api.get<UserDTO>('/user/me')
 }

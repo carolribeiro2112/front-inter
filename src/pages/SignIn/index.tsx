@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Wrapper, Background, InputContainer, ButtonContainer } from './styles';
 
 import background from '../../assets/background.jpg';
@@ -8,11 +9,30 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Link, useNavigate } from 'react-router-dom';
 
-export const SignIn = () => {
-  const navigate = useNavigate();
+import { useAuth } from '../../hooks/useAth';
 
-  const handleToSignIn = () => {
-    navigate('/dashboard')
+export const SignIn = () => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+  const {userSignIn} = useAuth();
+
+  const handleToSignIn = async () => {
+    const data = {
+      email,
+      password,
+    }
+
+    const response = await userSignIn(data)
+
+    if(response.id) {
+      navigate('/dashboard')
+      return;
+    }
+
+    alert('credenciais inválidas')
   }
 
   return(
@@ -21,8 +41,8 @@ export const SignIn = () => {
       <Card width="403px" height='auto'>
         <img src={logo} alt="logo banco inter" width={172} height={61} />
         <InputContainer>
-          <Input placeholder='E-mail'/>
-          <Input placeholder='Senha' type="password"/>
+          <Input placeholder='E-mail' value={email} onChange={e => setEmail(e.target.value)}/>
+          <Input placeholder='Senha' type="password" value={password} onChange={e => setPassword(e.target.value)}/>
         </InputContainer>
         <ButtonContainer>
           <Button type="button" onClick={handleToSignIn}>Entrar</Button>
