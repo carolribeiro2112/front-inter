@@ -28,7 +28,7 @@ export const StatementItem = ({user, value, type, updatedAt}: StatementItemProps
 
         <p>{type === 'pay' ? 'Pago a' : 'Recebido de'} <strong>{user.firstName} {user.lastName}</strong></p>
 
-        <p>{format(updatedAt, "dd/MM/yyyy 'às' HH:mm: 'h'")}</p>
+        <p>{format(updatedAt, "dd/MM/yyyy 'às' HH:mm 'h'")}</p>
       </StatementItemInfo>
     </StatementItemContainer>
   )
