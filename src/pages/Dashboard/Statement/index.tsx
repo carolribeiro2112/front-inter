@@ -12,7 +12,7 @@ interface StatementItemProps {
   }
 
   value: number;
-  type: 'pay' | 'received';
+  type: 'paid' | 'received';
   updatedAt: Date;
 }
 
@@ -28,7 +28,7 @@ export const StatementItem = ({user, value, type, updatedAt}: StatementItemProps
           currency: 'BRL'
         })}</p>
 
-        <p>{type === 'pay' ? 'Pago a' : 'Recebido de'} <strong>{user.firstName} {user.lastName}</strong></p>
+        <p>{type === 'paid' ? 'Pago a' : 'Recebido de'} <strong>{user.firstName} {user.lastName}</strong></p>
 
         <p>{format(new Date(updatedAt), "dd/MM/yyyy 'às' HH:mm 'h'")}</p>
       </StatementItemInfo>
